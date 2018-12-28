@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Popular Movies</string>
+    <string name="sort_popular">Popular</string>
+    <string name="sort_rated">Top Rated</string>
+    <string name="poster_image_alt">Placeholder Image</string>
+
+    <string name="error_message">An error has occurred. Please reoad</string>
+    <string name="error_no_connectivity">404 internet not found</string>
+    <string name="error_moviedb_list">Oops....Please try again</string>
+    <string name="error_movie_poster">Oops...misplaced poster</string>
 </resources>

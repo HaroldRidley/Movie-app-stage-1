@@ -3,10 +3,7 @@ package com.popmovies.hridley.popularmovies;
 import android.os.AsyncTask;
 import android.view.View;
 
-import com.popmovies.hridley.popularmovies.R;
-import com.popmovies.hridley.popularmovies.MovieListFragment;
-import com.popmovies.hridley.popularmovies.Movie;
-import com.popmovies.hridley.popularmovies.utilities.MovieJsonUtilities;
+import com.popmovies.hridley.popularmovies.utilities.JsonUtilities;
 import com.popmovies.hridley.popularmovies.utilities.NetworkUtilities;
 
 import org.json.JSONObject;
@@ -41,7 +38,7 @@ public class FetchMovieTask extends AsyncTask<String[], Void, List<Movie>> {
             String response = NetworkUtilities.getResponse(url);
             JSONObject responseJson = new JSONObject(response);
 
-            return MovieJsonUtilities.getPopularMoviesList(responseJson);
+            return JsonUtilities.getPopularMoviesList(responseJson);
         } catch (Exception e) {
             e.printStackTrace();
             return null;

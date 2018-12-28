@@ -5,12 +5,12 @@ import android.view.View;
 import com.popmovies.hridley.popularmovies.MoviesAdapter;
 import com.squareup.picasso.Callback;
 
-public class MoviePosterCallback extends Callback.EmptyCallback {
+public class PosterCallback extends Callback.EmptyCallback {
 
     private MoviesAdapter.MoviesAdapterViewHolder mViewHolder;
 
 
-    public MoviePosterCallback(MoviesAdapter.MoviesAdapterViewHolder viewHolder) {
+    public PosterCallback(MoviesAdapter.MoviesAdapterViewHolder viewHolder) {
         this.mViewHolder = viewHolder;
     }
 

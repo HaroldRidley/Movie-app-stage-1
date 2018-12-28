@@ -55,12 +55,13 @@ public class MovieListFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        Boolean errorShown = false;
+        Boolean error = false;
+        mContext = getContext();
         if (savedInstanceState != null) {
-            errorShown = savedInstanceState.getBoolean(BUNDLE_ERROR_KEY);
+            error = savedInstanceState.getBoolean(BUNDLE_ERROR_KEY);
         }
 
-        if (savedInstanceState != null && !errorShown) {
+        if (savedInstanceState != null && !error) {
             mPage = savedInstanceState.getInt(BUNDLE_PAGE_KEY);
             mSorting = savedInstanceState.getInt(BUNDLE_SORTING_KEY);
         } else {
@@ -70,17 +71,16 @@ public class MovieListFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.movie_list_fragment, container, false);
 
-        mContext = getContext();
         final int columns = getResources().getInteger(R.integer.grid_columns);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(mContext, columns, GridLayoutManager.VERTICAL, false);
-        RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.rv_posters);
+        RecyclerView recyclerView =  rootView.findViewById(R.id.rv_posters);
         recyclerView.setLayoutManager(gridLayoutManager);
 
         recyclerView.setHasFixedSize(true);
         mMoviesAdapter = new MoviesAdapter();
         recyclerView.setAdapter(mMoviesAdapter);
 
-        mLoadingIndicator = (ProgressBar) rootView.findViewById(R.id.pb_loading_indicator);
+        mLoadingIndicator =  rootView.findViewById(R.id.pb_loading_indicator);
         mScrollListener = new RecyclerViewScrollListener(gridLayoutManager, mPage) {
             @Override
             public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
@@ -91,7 +91,7 @@ public class MovieListFragment extends Fragment {
         };
         recyclerView.addOnScrollListener(mScrollListener);
 
-        mSwipeContainer = (SwipeRefreshLayout) rootView.findViewById(R.id.sr_swipe_container);
+        mSwipeContainer =  rootView.findViewById(R.id.sr_swipe_container);
         mSwipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -100,11 +100,11 @@ public class MovieListFragment extends Fragment {
                 loadCards(mSorting);
             }
         });
+        mErrorMessageDisplay = rootView.findViewById(R.id.tv_error_message_display);
         mSwipeContainer.setColorSchemeResources(R.color.colorAccent);
 
-        mErrorMessageDisplay = (TextView) rootView.findViewById(R.id.tv_error_message_display);
 
-        if (savedInstanceState != null && !errorShown) {
+        if (savedInstanceState != null && !error) {
             ArrayList<Movie> movieList = savedInstanceState.getParcelableArrayList(BUNDLE_MOVIES_KEY);
             mMoviesAdapter.setMoviesData(movieList);
         } else {

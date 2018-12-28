@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.popmovies.hridley.popularmovies.utilities.MoviePosterCallback;
+import com.popmovies.hridley.popularmovies.utilities.PosterCallback;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -61,12 +61,12 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MoviesAdap
 
     @Override
     public int getItemCount() {
-        if (mMovieList.isEmpty()) return 0;
+        if (mMovieList == null) return 0;
         return mMovieList.size();
     }
 
     public void clear() {
-        if (!mMovieList.isEmpty()) {
+        if (mMovieList!= null) {
             mMovieList.clear();
             notifyDataSetChanged();
         }
@@ -87,7 +87,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MoviesAdap
         Movie movie = mMovieList.get(position);
         Picasso.with(moviesAdapterViewHolder.mContext)
                 .load(movie.buildPosterPath(moviesAdapterViewHolder.mContext))
-                .into(moviesAdapterViewHolder.mMoviePosterImageView, new MoviePosterCallback(moviesAdapterViewHolder));
+                .into(moviesAdapterViewHolder.mMoviePosterImageView, new PosterCallback(moviesAdapterViewHolder));
         moviesAdapterViewHolder.mMovieTitleTextView.setText(movie.getOriginalTitle());
 
         moviesAdapterViewHolder.mPopularMovieCardView.setTag(R.id.card_view_item, position);

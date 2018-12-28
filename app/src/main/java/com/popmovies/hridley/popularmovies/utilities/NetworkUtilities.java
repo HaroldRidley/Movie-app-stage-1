@@ -15,7 +15,7 @@ import java.util.Scanner;
 
 public final class NetworkUtilities {
 
-    private static final String API_KEY = "<your api key here>";
+    private static final String API_KEY = "<your-api-key-here>";
 
 
     private static final String API_KEY_QUERY_PARAM = "api_key";

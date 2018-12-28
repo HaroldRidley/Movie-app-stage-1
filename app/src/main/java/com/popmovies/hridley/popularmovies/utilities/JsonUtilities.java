@@ -11,7 +11,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class MovieJsonUtilities {
+public final class JsonUtilities {
 
     private static final String STATUS_CODE = "status_code";
     private static final String STATUS_MESSAGE = "status_message";
@@ -19,7 +19,7 @@ public final class MovieJsonUtilities {
     private static final int STATUS_INVALID_RESOUCE = 34;
     private static final String SUCCESS = "success";
 
-    private static final String TAG = MovieJsonUtilities.class.getSimpleName();
+    private static final String TAG = JsonUtilities.class.getSimpleName();
 
     public static List<Movie> getPopularMoviesList(JSONObject popularMovies)
             throws JSONException {

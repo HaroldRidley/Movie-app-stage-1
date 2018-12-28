@@ -35,13 +35,13 @@ public class MovieDetailActivity extends AppCompatActivity {
 
                 setContentView(R.layout.activity_movie_detail);
 
-                ImageView moviePosterImageView = (ImageView) findViewById(R.id.iv_movie_detail_poster);
-                final ProgressBar moviePosterProgressBar = (ProgressBar) findViewById(R.id.pb_movie_detail_poster);
-                TextView movieTitleTextView = (TextView) findViewById(R.id.tv_movie_detail_title);
-                TextView movieVoteAverageTextView = (TextView) findViewById(R.id.tv_movie_detail_vote_average);
-                TextView movieReleaseDateTextView = (TextView) findViewById(R.id.tv_movie_detail_release_date);
-                TextView movieOverviewTextView = (TextView) findViewById(R.id.tv_movie_detail_overview);
-                final TextView moviePosterErrorTextView = (TextView) findViewById(R.id.tv_movie_detail_poster_error);
+                ImageView moviePosterImageView =  findViewById(R.id.iv_movie_detail_poster);
+                final ProgressBar moviePosterProgressBar =  findViewById(R.id.pb_movie_detail_poster);
+                TextView movieVoteAverageTextView =  findViewById(R.id.tv_movie_detail_vote_average);
+                TextView movieReleaseDateTextView =  findViewById(R.id.tv_movie_detail_release_date);
+                TextView movieOverviewTextView =  findViewById(R.id.tv_movie_detail_overview);
+                TextView movieTitleTextView =  findViewById(R.id.tv_movie_detail_title);
+                final TextView moviePosterErrorTextView = findViewById(R.id.tv_movie_detail_poster_error);
 
                 Movie movie = getIntent().getExtras().getParcelable(INTENT_MOVIE_KEY);
 

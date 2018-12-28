@@ -1,7 +1,7 @@
 # Movie-app-stage-1
 
 
-in order to run project. update the  "\<your-api-key-here\>" string with the your v3 api key.
+in order to run project. update NetworkUtilities.java replace "\<your-api-key-here\>" string with the your v3 api key.
 
 Utilizing fragments,tasks,parceables, and callbacks
 
